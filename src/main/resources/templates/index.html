@@ -12,27 +12,41 @@
 </head>
 <body>
 
-<a href="/add">Add a Car</a>
-<div th:each="eachCar:${shop}">
-    <!-- what does the null statement below do? ???? -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            One of three columns
+        </div>
+        <div class="col-sm">
+            <a href="/add">Add a Car</a>
+            <div th:each="eachCar:${shop}">
+                <!-- what does the null statement below do? ???? -->
 
-    <!-- had to add class="image" -->
-   <!-- <img class="image" src = "/image/puppy.jpg" alt="This is supposed to be a puppy"> -->
+                <!-- had to add class="image" -->
+                <!-- <img class="image" src = "/image/puppy.jpg" alt="This is supposed to be a puppy"> -->
 
-    <img th:src="${eachCar.image}"/>
-    <br/>
-    <p th:text="${eachCar.model}"></p>
-    <p th:text="${eachCar.brand}"></p>
-    <p th:text="${eachCar.color}"></p>
+                <img th:src="${eachCar.image}"/>
+                <br/>
+                <p th:text="${eachCar.model}"></p>
+                <p th:text="${eachCar.brand}"></p>
+                <p th:text="${eachCar.color}"></p>
 
-   <!-- <p th:text="${eachCar.image}"></p> -->
+                <!-- <p th:text="${eachCar.image}"></p> -->
 
-   <p th:text="${eachCar.available}? 'Rented':'Available'"></p>
-    <br/>
-    <a th:text="${eachCar.available}? 'Return':'Rent'" th:href="@{/changestatus/{id}(id=${eachCar.id})}"></a>
-    <span><a th:href="@{/update/{id}(id=${eachCar.id})}">Update</a></span>
-    <span><a th:href="@{/delete/{id}(id=${eachCar.id})}">Delete</a></span>
+                <p th:text="${eachCar.available}? 'Rented':'Available'"></p>
+                <br/>
+                <a th:text="${eachCar.available}? 'Return':'Rent'" th:href="@{/changestatus/{id}(id=${eachCar.id})}"></a>
+                <span><a th:href="@{/update/{id}(id=${eachCar.id})}">Update</a></span>
+                <span><a th:href="@{/delete/{id}(id=${eachCar.id})}">Delete</a></span>
 
+            </div>
+        </div>
+        <div class="col-sm">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut cursus augue. Phasellus ac arcu ut mauris commodo commodo. Nam hendrerit ullamcorper leo, rutrum rhoncus risus semper eget. Proin imperdiet elit tortor, non lobortis nisl cursus nec. Maecenas vel bibendum erat. Fusce dapibus ac nulla ac pretium. Praesent sit amet purus tellus. Quisque eleifend tristique eros vitae sodales. Sed blandit, tellus vel accumsan pellentesque, urna leo imperdiet lorem, a accumsan erat tellus eget purus. Nulla quam est, feugiat varius augue eu, gravida fermentum magna. Suspendisse auctor non quam in accumsan. Donec molestie mi in massa dapibus dapibus. Nullam ac augue ut lacus varius venenatis. Cras tellus sapien, egestas sed est ut, cursus sagittis nisl. Donec commodo est aliquet nisl ultrices faucibus. Sed vel efficitur ligula.
+
+            Suspendisse semper tincidunt mauris, eget semper urna maximus ut. Suspendisse id maximus dui. Vestibulum iaculis mi quis urna tristique, non aliquam diam convallis. In maximus scelerisque ornare. Mauris elementum posuere erat, id posuere urna molestie eu. Pellentesque faucibus lobortis odio, vitae interdum augue malesuada ut. Suspendisse finibus justo in elit venenatis eleifend.
+        </div>
+    </div>
 </div>
 
 

@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
+    <link rel="stylesheet" href="/css/style.css">
+
 </head>
 <body>
 
 <a href="/add">Add a Car</a>
 <div th:each="eachCar:${shop}">
-    <!-- what does the null statement below do? -->
+    <!-- what does the null statement below do? ???? -->
+
+    <!-- had to add class="image" -->
+   <!-- <img class="image" src = "/image/puppy.jpg" alt="This is supposed to be a puppy"> -->
+
     <img th:src="${eachCar.image}"/>
+    <br/>
     <p th:text="${eachCar.model}"></p>
     <p th:text="${eachCar.brand}"></p>
     <p th:text="${eachCar.color}"></p>
@@ -17,8 +24,8 @@
    <!-- <p th:text="${eachCar.image}"></p> -->
 
    <p th:text="${eachCar.available}? 'Rented':'Available'"></p>
+    <br/>
     <a th:text="${eachCar.available}? 'Return':'Rent'" th:href="@{/changestatus/{id}(id=${eachCar.id})}"></a>
-
     <span><a th:href="@{/update/{id}(id=${eachCar.id})}">Update</a></span>
     <span><a th:href="@{/delete/{id}(id=${eachCar.id})}">Delete</a></span>
 
